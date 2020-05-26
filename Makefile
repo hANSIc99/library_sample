@@ -4,9 +4,11 @@
 # -o output
 # -s make stripped libray
 
-CFLAGS = -Wall -Werror
+CFLAGS =-Wall -Werror -Wl,-rpath,$(shell pwd)
 LIBS = -L. -lmy_shared
-output: main.o libmy_static.a libmy_shared.so
+
+
+all: main.o libmy_static.a libmy_shared.so
 	cc $(LIBS) -o my_app main.o libmy_static.a $(CFLAGS)
 
 main.o: main.c
