@@ -4,7 +4,10 @@
 # -o output
 # -s make stripped libray
 
-CFLAGS =-Wall -Werror -Wl,-rpath,$(shell pwd)
+# uncomment the last part in line 10 to specify current working
+# directory as the default search path for shared objects
+
+CFLAGS =-Wall -Werror #-Wl,-rpath,$(shell pwd) 
 LIBS = -L. -lmy_shared
 
 
