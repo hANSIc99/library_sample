@@ -7,12 +7,12 @@
 # uncomment the last part in line 10 to specify current working
 # directory as the default search path for shared objects
 
-CFLAGS =-Wall -Werror #-Wl,-rpath,$(shell pwd) 
+CFLAGS =-Wall -Werror -Wl,-rpath,$(shell pwd) 
 LIBS = -L. -lmy_shared
 
 
 all: main.o libmy_static.a libmy_shared.so
-	cc $(LIBS) -o my_app main.o libmy_static.a $(CFLAGS)
+	cc $(LIBS) -o my_app main.o libmy_static.a libmy_shared.so $(CFLAGS)
 
 main.o: main.c
 	cc -c main.c $(CFLAGS)
